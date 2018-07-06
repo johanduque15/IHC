@@ -2,14 +2,14 @@ $(document).ready(function() {
         var iCnt = 0;
 
 // Crear un elemento div añadiendo estilos CSS
-        var container = $(document.createElement('div')).css({
+        var container = $(document.createElement('input')).css({
             padding: '5px', margin: '20px', width: '170px', border: '1px dashed',
             borderTopColor: '#999', borderBottomColor: '#999',
             borderLeftColor: '#999', borderRightColor: '#999'
         });
 
         $('#btAdd').click(function() {
-            if (iCnt <= 19) {
+            if (iCnt <= 10) {
 
                 iCnt = iCnt + 1;
 
