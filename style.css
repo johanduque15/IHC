@@ -27,4 +27,6 @@ tr.even {
 tr:hover {
 	background-color: #c3e6e5;
 }
-
+head{
+	background-image: url("images/Logo-UCAB.png");
+}
