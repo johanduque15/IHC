@@ -1,37 +1,28 @@
-$(document).ready(function() {
-        var iCnt = 0;
+$(document).ready(function(){
+    var next = 1;
+    $(".add-more").click(function(e){
+        e.preventDefault();
+        var addto = "#field" + next;
+        var addRemove = "#field" + (next);
+        next = next + 1;
+        var newIn = '<input autocomplete="off" class="input form-control" id="field' + next + '" name="field' + next + '" type="text">';
+        var newInput = $(newIn);
+        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field">';
+        var removeButton = $(removeBtn);
+        $(addto).after(newInput);
+        $(addRemove).after(removeButton);
+        $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+        $("#count").val(next);
 
-// Crear un elemento div añadiendo estilos CSS
-        var container = $(document.createElement('input')).css({
-            padding: '5px', margin: '20px', width: '170px', border: '1px dashed',
-            borderTopColor: '#999', borderBottomColor: '#999',
-            borderLeftColor: '#999', borderRightColor: '#999'
+        $('.remove-me').click(function(e){
+            e.preventDefault();
+            var fieldNum = this.id.charAt(this.id.length-1);
+            var fieldID = "#field" + fieldNum;
+            $(this).remove();
+            $(fieldID).remove();
         });
+    });
 
-        $('#btAdd').click(function() {
-            if (iCnt <= 10) {
 
-                iCnt = iCnt + 1;
 
-                // Añadir caja de texto.
-                $(container).append('<input type=text class="input" id=tb' + iCnt + ' ' +
-                            'value="Elemento de Texto ' + iCnt + '" />');
-
-                if (iCnt == 1) {   
-
- var divSubmit = $(document.createElement('div'));
-                    $(divSubmit).append('<input type=button class="bt" onclick="GetTextValue()"' + 
-                            'id=btSubmit value=Enviar />');
-
-                }
-
- $('#main').after(container, divSubmit); 
-            }
-            else {      //se establece un limite para añadir elementos, 20 es el limite
-                
-                $(container).append('<label>Limite Alcanzado</label>'); 
-                $('#btAdd').attr('class', 'bt-disable'); 
-                $('#btAdd').attr('disabled', 'disabled');
-
-            }
-        });
+});
