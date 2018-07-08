@@ -3,6 +3,10 @@ body{
 	font-family: Arial, Verdana, sans-serif;
 	color: #111111;
 }
+a:link
+{
+	text-decoration:none;
+}
 h1{
 	text-align: center;
 }
